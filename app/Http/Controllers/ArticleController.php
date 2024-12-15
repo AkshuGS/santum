@@ -6,15 +6,18 @@ use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
+use App\Filters\AtricleFilters;
 
 class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Article::all();
+        // dd(12);
+        return Article::filter($request->all())->get();
+        // return Article::all();
     }
 
     /**
@@ -45,9 +48,10 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show(Article $article, AtricleFilters $filters)
     {
-        //
+        // dd($filters);
+        // return Article::filter($filters)->get();
     }
 
     /**

@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+// use App\Filters\Filterable;
+use App\Traits\AtricleFilters;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory,AtricleFilters;
 
     protected $fillable=[
         'title',
@@ -21,5 +22,9 @@ class Article extends Model
         'fulldescription',
         'source_id'
     ];
+
+    protected $likeFilterFields = ['title', 'source_id','creator','keywords'];
+
+    protected $boolFilterFields = ['status'];
     
 }
