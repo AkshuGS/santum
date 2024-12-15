@@ -22,12 +22,11 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-      
+       
         $fields = $request->validate([
             'title'=> 'required',
             'link'=> 'required',
-            // 'keywords'=> 'required',
+             'keywords'=> 'required',
             'creator'=> 'required',
             'video_url'=> 'required',
             'description'=> 'required',
@@ -35,11 +34,12 @@ class ArticleController extends Controller
             'fulldescription'=> 'required',
             'source_id'=> 'required'
         ]);
-
-        $article = Article::create($fields);
         
-
-        return 'OK';
+         $fields['keywords'] = json_encode($request['keywords']);
+         
+         $article = Article::create($fields);
+        
+         return 'OK';
     }
 
     /**

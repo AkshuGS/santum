@@ -21,7 +21,7 @@ use App\Http\Controllers\CodeCheckController;
 //     return $request->user();
 // });
 
-Route::apiResource('articles', ArticleController::class);
+Route::middleware('auth:sanctum')->apiResource('articles', ArticleController::class);
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
