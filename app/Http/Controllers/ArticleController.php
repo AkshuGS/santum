@@ -6,7 +6,9 @@ use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use Illuminate\Http\Request;
-use App\Filters\AtricleFilters;
+// use App\Filters\AtricleFilters;
+
+use Illuminate\Support\Facades\Http;
 
 class ArticleController extends Controller
 {
@@ -48,10 +50,11 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article, AtricleFilters $filters)
+    public function show(Article $article)
     {
         // dd($filters);
         // return Article::filter($filters)->get();
+        
     }
 
     /**
@@ -68,5 +71,17 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function shownews(Article $article)
+    {
+        
+        $response = Http::get('https://jsonplaceholder.typicode.com/posts');
+        $jsonData = $response->json();
+
+          
+
+        dd($jsonData);
+        
     }
 }

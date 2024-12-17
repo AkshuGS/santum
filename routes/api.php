@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CodeCheckController;
+use App\Http\Controllers\OnlineAricleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,10 @@ Route::post('password/email',  [CodeCheckController::class, 'fogotpassword']);
 // Route::post('password/code/check', CodeCheckController::class);
 Route::post('password/reset', [CodeCheckController::class , 'resetpassword']);
 
+Route::get('getnews', [ArticleController::class, 'shownews']);
+
+// Route::apiResource('online-articles', OnlineAricleController::class);
+Route::get('storenews', [OnlineAricleController::class, 'storenews']);
 
 // Route::get('/post',function (){
 //     return 'API';
