@@ -35,6 +35,7 @@ Route::post('password/reset', [CodeCheckController::class , 'resetpassword']);
 Route::get('getnews', [ArticleController::class, 'shownews']);
 
 // Route::apiResource('online-articles', OnlineAricleController::class);
+Route::get('news', [OnlineAricleController::class, 'index']);
 Route::get('storenews', [OnlineAricleController::class, 'storenews']);
 
 // Route::get('/post',function (){

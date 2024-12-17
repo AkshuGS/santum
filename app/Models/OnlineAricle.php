@@ -8,7 +8,7 @@ use App\Traits\AtricleFilters;
 
 class OnlineAricle extends Model
 {
-    use HasFactory;
+    use HasFactory,AtricleFilters;
 
     protected $fillable=[
         'title',

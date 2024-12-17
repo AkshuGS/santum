@@ -12,10 +12,9 @@ class OnlineAricleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $api_key = env('NewsAPI');
-        return $api_key;
+        return OnlineAricle::filter($request->all())->get();
     }
 
     public function storenews()
