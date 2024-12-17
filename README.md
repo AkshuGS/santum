@@ -1,4 +1,4 @@
-Install backend api using sanctum
+Install backend api using sanctum<br>
 php artisan install:api
 pusblish the provides
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
