@@ -1,8 +1,8 @@
 Install backend api using sanctum<br>
 php artisan install:api<br><br>
-pusblish the provides<br>
+pusblish the provider<br>
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"<br><br>
-migrate the files<br>
+migrate the files to create the database in mysql<br>
 php artisan migrate<br><br>
 
 
